@@ -10,10 +10,10 @@ import DetailModal from "./DetailModal";
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
+  /**
+   * Get the OKR Data from service
+   */
   componentDidMount = () => {
     this.props.getOKR();
   }
@@ -29,6 +29,7 @@ class App extends Component {
             <DropDownSelection />
           </div>
         </div>
+        {/* Inner Root for the okr detail modal */}
         <Switch>
           <Route path="/okr-detail" exact={true} component={DetailModal} />
         </Switch>

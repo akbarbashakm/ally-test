@@ -1,7 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
 import ChildOKR from './ChildOKR';
+
+/**
+ * This component return the current data to the ui
+ * @param {*} currentOKR 
+ */
 
 const AllyOKR = ({
     currentOKR = {}

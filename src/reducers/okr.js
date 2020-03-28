@@ -4,9 +4,7 @@ const INITIAL_STATE = {
     categories: []
 }
 export default (state = INITIAL_STATE, action) => {
-    const { type = '', payload = {}, category } = action;
-    const { OKRData } = state;
-    const currentOKR = {};
+    const { type = '', payload = {} } = action;
     switch (type) {
         case 'SET_OKR': {
             return {
@@ -21,26 +19,10 @@ export default (state = INITIAL_STATE, action) => {
         }
         break;
         case 'SPLIT_OKR': {
-            if (category === 'All') {
-                return {
-                    ...state,
-                    currentOKR: {
-                        ...OKRData
-                    }
-                }
-            } else {
-                Object.keys(OKRData).map((key, index) => {
-                    if (OKRData[key]['category'] === category) {
-                        currentOKR[key] = {
-                            ...OKRData[key]
-                        }
-                    }
-                })
-            }            
             return {
                 ...state,
                 currentOKR: {
-                    ...currentOKR
+                    ...payload
                 }
             }
         }

@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Select from 'react-select';
+import splitOKR from '../services/splitOKR';
+import { bindActionCreators } from 'redux';
 
+/**
+ * Filter operation for OKR has been performed here
+ * @param {*} splitOkr 
+ */
 const DropDownSelection = ({
-    splitOkr
+    splitOkr,
+    OKRData
 }) => {
     const handleChange = (selectedOption) => {
         const { value } = selectedOption;
-        splitOkr(value);
+        splitOkr(value, OKRData);
     }
     return (
         <Select
@@ -28,13 +35,20 @@ const DropDownSelection = ({
     )
 }
 
+const mapStateToProp = ({ app }) => {
+    const { OKRData } = app;
+    return {
+        OKRData: {...OKRData}
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
-        splitOkr: (category) => dispatch({
-            type: 'SPLIT_OKR',
-            category
-        })
+        splitOkr: bindActionCreators(
+            splitOKR,
+            dispatch
+        )
     };
 };
 
-export default connect(null, mapDispatchToProps)(DropDownSelection);
+export default connect(mapStateToProp, mapDispatchToProps)(DropDownSelection);

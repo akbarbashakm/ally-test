@@ -1,6 +1,10 @@
 import React from 'react';
 import { withLastLocation } from "react-router-last-location";
 
+/**
+ * Return the child okr detail
+ * @param {*} childData 
+ */
 const ChildOKR = ({
     childData = [],
     parentData,

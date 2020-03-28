@@ -9,7 +9,6 @@ class DetailModal extends Component {
             childData = {}
         } = props.location.state;
         const { title = 'No Title' } = parentData;
-        const { category = '' } = childData;
         this.state = {
             parentTitle: title,
             ...childData
@@ -27,6 +26,7 @@ class DetailModal extends Component {
         if (!this.state.category) {
             this.props.history.push('/');
         }
+        document.addEventListener("keyup", this.handleKeyUp);
     }
 
     /**
@@ -38,7 +38,7 @@ class DetailModal extends Component {
     };
 
     /**
-     * Trigger when click the save
+     * Trigger when click the close
      */
 
     closeModal = () => {
