@@ -17,7 +17,7 @@ const AllyOKR = ({
                             <input type="checkbox" id={`rd${index}`} name="rd" />
                             <label className="tab-label" htmlFor={`rd${index}`}>{`${okrData.title || 'No Title'}`}</label>
                             <div className="tab-content">
-                                <ChildOKR childData={okrData.children} />
+                                <ChildOKR childData={okrData.children} parentData={okrData} />
                             </div>
                         </div>
                     )

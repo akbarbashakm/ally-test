@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import getOKR from "../services/getOKR";
 import AllyOKR from "./AllyOKR";
 import DropDownSelection from "./DropDownSelection";
+import DetailModal from "./DetailModal";
 
 
 class App extends Component {
@@ -28,6 +29,9 @@ class App extends Component {
             <DropDownSelection />
           </div>
         </div>
+        <Switch>
+          <Route path="/okr-detail" exact={true} component={DetailModal} />
+        </Switch>
       </div>
     )
   }
