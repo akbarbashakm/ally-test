@@ -7,7 +7,7 @@ import { OKR_JSON_URL } from './apiURL';
 export default function splitOKR(category, OKRData) {
     return dispatch =>
         new Promise((res, rej) => {
-            const payloadData = {};
+            let payloadData = {};
             if (category === 'All') {
                 payloadData = {
                     ...OKRData
